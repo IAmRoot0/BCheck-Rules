@@ -2,10 +2,13 @@ metadata:
     language: v1-beta
     name: "Host Header Injection"
     description: "Host Header Injection Vulnerability Detection "
+    author: "Akshay Borase"
+
 given request then
     send request:
         headers:
             "Host": {generate_collaborator_address()}
+
     if http interactions then
         report issue:
             severity: Low
