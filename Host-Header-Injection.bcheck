@@ -1,0 +1,14 @@
+metadata:
+    language: v1-beta
+    name: "Host Header Injection"
+    description: "Host Header Injection Vulnerability Detection "
+given request then
+    send request:
+        headers:
+            "Host": {generate_collaborator_address()}
+    if http interactions then
+        report issue:
+            severity: Low
+            confidence: firm
+            detail: "This site fetches arbitrary URLs specified in the Host header."
+    end if
